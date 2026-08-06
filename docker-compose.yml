@@ -1,0 +1,44 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: proxy_nginx
+    ports: 
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app_backend
+    networks:
+      - red-cba-sofia
+  servidor-bd-sofia:
+    image: mysql:8.0
+    container_name: contenedor-servidor-bd
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - red-cba-sofia
+  app_backend:
+    build: .
+    container_name: backend_sofia
+    volumes:
+      - .:/home/SOFIA
+    environment:
+      FLASK_ENV: development
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    networks:
+      - red-cba-sofia
+    depends_on:
+      - servidor-bd-sofia
+
+networks: 
+  red-cba-sofia: 
+    name: red-cba-sofia-ejemplo
+
+volumes:
+  mysql-data:
+    name: mysql-data
+ 
