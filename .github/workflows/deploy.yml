@@ -2,7 +2,7 @@ name: Plublicar Imagen en dockerhub
 
 on: 
   push:
-    branches: ["main","master"]
+    branches: ["main"]
 
 jobs: 
   build-and-push:
