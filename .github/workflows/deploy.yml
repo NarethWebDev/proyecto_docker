@@ -22,5 +22,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: zunnix/api_sofia:latest
+          tags: webdevnareth/api_nareth:latest
       

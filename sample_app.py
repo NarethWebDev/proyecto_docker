@@ -4,10 +4,10 @@ import pymysql
 app = Flask(__name__)
 
 DB_CONFIG = {
-    'host': 'contenedor-servidor-bd',          
+    'host': 'contenedor-servidor-bd-nareth',          
     'user': 'root',
     'password': 'sena123',
-    'database': 'bd-de-sofia',              
+    'database': 'bd-de-nareth',              
     'connect_timeout': 3  
 }
 

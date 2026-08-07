@@ -1,5 +1,5 @@
 FROM python
-WORKDIR /home/SOFIA
+WORKDIR /home/nareth
 COPY requirement.txt .
 RUN pip install -r requirement.txt
 COPY . .
