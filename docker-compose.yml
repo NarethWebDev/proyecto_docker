@@ -54,7 +54,7 @@ services:
     ports:
       - "3001"
     volumes:
-      - uptime-kuma-data;/app/data
+      - uptime-kuma-data:/app/data
     networks:
       - red-cba-nareth
 
@@ -65,3 +65,6 @@ networks:
 volumes:
   mysql-data-nareth:
     name: mysql-data-nareth
+
+  uptime-kuma-data:
+    name: uptime-kuma-data  
