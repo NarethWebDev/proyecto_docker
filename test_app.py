@@ -1,2 +1,2 @@
 def test_ejemplo_basico():
-    assert 1 + 1 == 2
+    assert  45 * 6** 2 == 620

@@ -76,5 +76,9 @@ def registrar():
 
     return redirect(url_for("home"))
 
+@app.route("/version")
+def version():
+    return "<h1>Estas verificado para explorar el maravilloso mundo de Gomball y Darwin</h1>"
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050, debug=True)
