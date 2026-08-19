@@ -32,7 +32,7 @@ services:
       image: webdevnareth/api_naret:v1
       container_name: backend_nareth
       volumes:
-        - .:/home/nareth
+        - .:/home/nareth    @
       environment:
         FLASK_ENV: development
         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -41,6 +41,7 @@ services:
         - red-cba-nareth
       depends_on:
         - servidor-bd-nareth
+      condition: service_healthy
       healthcheck:
         test: ["CMD-SHELL", "curl -f http://localhost:5050/ || exit 1"]
         interval: 10s
@@ -57,6 +58,8 @@ services:
       - uptime-kuma-data:/app/data
     networks:
       - red-cba-nareth
+    depends_on:
+      - servidor-bd-nareth
 
 networks: 
   red-cba-nareth: 
