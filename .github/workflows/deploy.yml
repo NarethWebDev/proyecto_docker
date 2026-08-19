@@ -31,6 +31,6 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd proyecto-docker
-            docker-compose pull app_backend
-            docker-compose up -d
+            docker compose pull app_backend
+            docker compose up -d
       
